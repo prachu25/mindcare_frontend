@@ -130,12 +130,12 @@
             }
 
             #sendBtn {
-                width: 45px;
-                height: 45px;
+                width: 22px;
+                height: 22px;
             }
 
             #sendBtn i {
                 font-size: 18px;
-                margin-right: 20px;
+
             }
         }
