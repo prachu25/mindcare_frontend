@@ -18,9 +18,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // logout 
 function logout() {
-  localStorage.removeItem("user");
-  window.location.href = "../pages/index.html";
+  localStorage.clear();     // user + userId sab clear
+  window.location.href = "/";  // Vercel-safe redirect
 }
+
+
 
 const BASE_URL = "https://mindcare-backend-juwe.onrender.com";
 
