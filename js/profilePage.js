@@ -2,6 +2,9 @@
 /* GLOBAL STATE */
 let selectedGender = "male";
 
+const BASE_URL = "https://mindcare-backend-juwe.onrender.com";
+
+
 /* GENDER CARD SELECTION */
 document.querySelectorAll(".gender-card").forEach(card => {
     card.addEventListener("click", () => {
@@ -23,8 +26,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     const user = JSON.parse(storedUser);
-
-    const BASE_URL = "https://mindcare-backend-juwe.onrender.com";
 
     /* 1️. LOAD USER NAME (users table) */
     try {
