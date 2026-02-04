@@ -1,0 +1,142 @@
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Poppins", sans-serif;
+        }
+
+        /* THEME */
+        :root {
+            --primary-color: #f3f7ff;
+            --secondary-color: #e6edff;
+            --accent: #4f8cff;
+            --text: #0f172a;
+            --muted: #6b7280;
+        }
+
+        body {
+            background: var(--primary-color);
+            color: var(--text);
+        }
+
+        /* MAIN CONTAINER (Gemini style) */
+        .container {
+            max-width: 980px;
+            margin: auto;
+            padding: 30px 16px 120px;
+            min-height: 100vh;
+        }
+
+        /* HEADER */
+        .app-header {
+            margin-top: 40px;
+        }
+
+        .heading {
+            font-size: 2.8rem;
+            background: linear-gradient(to right, #4f8cff, #8f6fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .sub-heading {
+            font-size: 2rem;
+            color: var(--muted);
+            margin-top: -6px;
+        }
+
+        /* CHAT AREA */
+        .messages {
+            margin-top: 40px;
+        }
+
+        .chats-container {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        /* BOT MESSAGE */
+        .message.bot {
+            align-self: flex-start;
+            background: var(--secondary-color);
+            padding: 14px 18px;
+            border-radius: 16px;
+            max-width: 60%;
+        }
+
+        /* USER MESSAGE — CENTER (YOUR REQUIREMENT) */
+        .message.user {
+            align-self: flex-end;
+            background: var(--accent);
+            color: #fff;
+            padding: 14px 18px;
+            border-radius: 18px;
+            max-width: 70%;
+        }
+
+        /* INPUT (Gemini bottom style) */
+        .prompt-form {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: min(960px, 95%);
+            display: flex;
+            background: #fff;
+            border-radius: 40px;
+            padding: 10px 14px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .prompt-input {
+            flex: 1;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+            padding: 10px 16px;
+        }
+
+        #sendBtn {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            cursor: pointer;
+        }
+
+        #sendBtn i {
+            pointer-events: none;
+        }
+
+        /* MOBILE FIX */
+        @media (max-width: 600px) {
+            .heading {
+                font-size: 2rem;
+            }
+
+            .sub-heading {
+                font-size: 1.4rem;
+            }
+
+            .message.user,
+            .message.bot {
+                max-width: 90%;
+                font-size: 14px;
+            }
+
+            #sendBtn {
+                width: 56px;
+                height: 56px;
+                border-radius: 50%;
+                font-size: 18px;
+            }
+
+            #sendBtn i {
+                font-size: 20px;
+            }
+        }

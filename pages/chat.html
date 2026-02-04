@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support-chat | MindCare</title>
+  <link rel="icon" type="image/png" href="../images/brain_icon.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <link rel="stylesheet" href="../css/chat.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="heading">Hello</h1>
+      <h2 class="sub-heading">How can I support you today?</h2>
+    </header>
+
+    <!-- CHAT (MindCare existing ID) -->
+    <div class="messages">
+      <div id="chatContainer" class="chats-container"></div>
+    </div>
+
+    <!-- INPUT (MindCare existing ID) -->
+    <form id="chatForm" class="prompt-form">
+      <input type="text" id="userMessage" class="prompt-input" placeholder="Type here..." required />
+      <button type="submit" id="sendBtn">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+
+  </div>
+
+  <script src="../js/chat.js"></script>
+</body>
+
+</html>

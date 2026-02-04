@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assessment | MindCare</title>
+  <link rel="icon" type="image/png" href="../images/brain_icon.png">
+  <!-- For icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <link rel="stylesheet" href="../css/assessment.css">
+
+</head>
+
+<body>
+
+  <div class="card">
+    <h3>Choose Your Assessment</h3>
+
+    <div class="types">
+      <button onclick="loadAssessment('STRESS')">
+        <i class="fas fa-brain"></i> Stress
+      </button>
+      <button onclick="loadAssessment('ANXIETY')">
+        <i class="fas fa-heartbeat"></i> Anxiety
+      </button>
+      <button onclick="loadAssessment('SLEEP')">
+        <i class="fas fa-moon"></i> Sleep
+      </button>
+    </div>
+
+    <form id="assessmentForm" class="hidden">
+      <h4 id="assessmentTitle"></h4>
+      <div id="questionsContainer"></div>
+      <button type="submit" class="submit">Submit Assessment</button>
+    </form>
+
+    <div id="resultBox" class="result hidden"></div>
+  </div>
+
+  <script>
+
+  </script>
+
+  <script src="../js/assessment.js"></script>
+
+</body>
+
+</html>

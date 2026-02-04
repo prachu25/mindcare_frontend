@@ -1,0 +1,132 @@
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+     font-family: "Poppins", sans-serif;
+ }
+
+ body {
+     background: #e9f1ef;
+ }
+
+ .page-wrapper {
+     min-height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: flex-start;
+     padding: 20px;
+ }
+
+ .app-card {
+     width: 100%;
+     max-width: 480px;
+     /* mobile */
+     background: #f1ffee;
+     border-radius: 12px;
+ }
+
+ .app-header {
+     display: flex;
+     align-items: center;
+     gap: 12px;
+     padding: 16px 20px;
+     background: #ffffff;
+     border-bottom: 1px solid #eee;
+ }
+
+ .app-header h2 {
+     font-size: 18px;
+     font-weight: 600;
+ }
+
+ .container {
+     padding: 20px;
+ }
+
+ .gender-wrapper {
+     display: flex;
+     gap: 15px;
+     margin-bottom: 25px;
+ }
+
+ .gender-card {
+     flex: 1;
+     background: #ffffff;
+     border-radius: 16px;
+     padding: 18px;
+     text-align: center;
+     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+     cursor: pointer;
+     border: 2px solid transparent;
+ }
+
+ .gender-card img {
+     width: 60px;
+     margin-bottom: 8px;
+ }
+
+ .gender-card p {
+     font-weight: 500;
+ }
+
+ .gender-card.active {
+     border-color: #2ecc71;
+     background: #eafaf1;
+ }
+
+ .input-group {
+     background: #ffffff;
+     padding: 14px;
+     border-radius: 14px;
+     margin-bottom: 14px;
+     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+ }
+
+ .input-group label {
+     font-size: 13px;
+     color: #666;
+ }
+
+ .input-group input {
+     width: 100%;
+     border: none;
+     outline: none;
+     font-size: 15px;
+     margin-top: 6px;
+ }
+
+ .input-group select {
+     width: 100%;
+     padding: 12px 15px;
+     border: 1px solid #d1d5db;
+     border-radius: 16px;
+     font-size: 14px;
+     color: #666;
+     transition: all 0.3s ease;
+     background: #fafafa;
+     margin-top: 3px;
+     border: none;
+ }
+
+ .save-btn {
+     width: 100%;
+     margin-top: 25px;
+     padding: 16px;
+     border-radius: 30px;
+     border: none;
+     background: #2ecc71;
+     color: white;
+     font-size: 16px;
+     font-weight: 600;
+     cursor: pointer;
+ }
+
+ /*DESKTOP VIEW  */
+ @media (min-width: 768px) {
+     .app-card {
+         max-width: 720px;
+         border-radius: 24px;
+         box-shadow: 0 25px 70px rgba(0, 0, 0, 0.18);
+         overflow: hidden;
+     }
+ }

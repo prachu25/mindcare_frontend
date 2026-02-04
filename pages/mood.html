@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mood Tracking | MindCare</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- For icons -->
+  <link rel="stylesheet" href="../css/mood.css" />
+  <link rel="icon" type="image/png" href="../images/brain_icon.png">
+</head>
+
+<body>
+  <!-- NAVBAR -->
+  <nav class="navbar" role="navigation" aria-label="Main Navigation">
+    <button id="dashboardBtn" class="nav-btn" aria-label="Back to Dashboard">
+      <i class="fas fa-arrow-left"></i> Dashboard
+    </button>
+    <h3 class="nav-title"><i class="fas fa-smile"></i> Mood Tracking</h3>
+    <button id="historyBtn" class="nav-btn" aria-label="View Mood History">
+      <i class="fas fa-history"></i> History
+    </button>
+  </nav>
+
+  <!-- HERO INTRO -->
+  <section class="hero-intro">
+    <h1>Take a Moment for Yourself</h1>
+    <p>Tracking your mood helps you understand patterns and build better habits. How are you feeling today?</p>
+  </section>
+
+  <!-- MOOD CHECK-IN SECTION -->
+  <main class="mood-container" role="main" id="mood-container">
+    <!-- MOOD SELECTION -->
+    <section class="mood-selection" aria-labelledby="mood-title" id="moodSelection">
+      <h2 id="mood-title">Select Your Mood</h2>
+      <div class="emoji-grid">
+        <button class="emoji-btn" data-mood="ecstatic" aria-label="Ecstatic">
+          <span class="emoji">😍</span>
+          <span class="emoji-label">ECSTATIC</span>
+        </button>
+        <button class="emoji-btn" data-mood="happy" aria-label="Happy">
+          <span class="emoji">😊</span>
+          <span class="emoji-label">HAPPY</span>
+        </button>
+        <button class="emoji-btn" data-mood="calm" aria-label="Calm">
+          <span class="emoji">🙂</span>
+          <span class="emoji-label">CLAM</span>
+        </button>
+        <button class="emoji-btn" data-mood="neutral" aria-label="Neutral" class="selected">
+          <span class="emoji">😐</span>
+          <span class="emoji-label">NEUTRAL</span>
+        </button>
+        <button class="emoji-btn" data-mood="sad" aria-label="Sad">
+          <span class="emoji">😢</span>
+          <span class="emoji-label">SAD</span>
+        </button>
+        <button class="emoji-btn" data-mood="anxious" aria-label="Anxious">
+          <span class="emoji">😰</span>
+          <span class="emoji-label">ANXIOUS</span>
+        </button>
+        <button class="emoji-btn" data-mood="angry" aria-label="Angry">
+          <span class="emoji">😠</span>
+          <span class="emoji-label">ANGRY</span>
+        </button>
+        <button class="emoji-btn" data-mood="stressed" aria-label="stressed">
+          <span class="emoji">😣</span>
+          <span class="emoji-label">STRESSED</span>
+        </button>
+      </div>
+      <p id="mood-caption" class="mood-caption">Feeling balanced — neither good nor bad.</p>
+    </section>
+
+    <!-- DAILY REFLECTION -->
+    <section class="reflection-section" aria-labelledby="reflection-title">
+      <h3 id="reflection-title">Daily Reflection</h3>
+      <textarea id="note" placeholder="What's on your mind? Share a thought, trigger, or goal for today..."
+        aria-label="Mood Note"></textarea>
+    </section>
+
+    <!-- SAVE BUTTON -->
+    <button id="saveMoodBtn" class="save-btn" aria-label="Save Today's Mood">
+      <i class="fas fa-save"></i> Save Today's Mood
+    </button>
+
+  </main>
+
+
+
+  <!-- QUICK TIPS SECTION -->
+  <section class="tips-section" aria-labelledby="tips-title" id="quickTips">
+    <h2 id="tips-title">Quick Tips for <span id="tipMood"></span> Days</h2>
+    <ul id="tipsList">
+      <li>Take a 5-minute walk outside to reset.</li>
+      <li>Practice deep breathing: Inhale for 4, hold for 4, exhale for 4.</li>
+      <li>Journal one thing you're grateful for.</li>
+    </ul>
+  </section>
+
+  <script src="../js/mood.js"></script>
+
+</body>
+
+</html>

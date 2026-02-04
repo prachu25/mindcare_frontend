@@ -1,0 +1,197 @@
+/* <<<-- Login And Register Page  -->>> */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, sans-serif;
+}
+
+.signup-body {
+    min-height: 100vh;
+    background: #f4f7fb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signup-card {
+    width: 900px;
+    max-width: 95%;
+    background: #fff;
+    display: flex;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+}
+
+.signup-left {
+    width: 45%;
+    background: #c8c8da;
+    padding: 28px 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.signup-left img {
+    max-width: 100%;
+    margin-bottom: 14px;
+    border-radius: 40px;
+}
+
+.signup-left h3 {
+    color: #0f9d58;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.signup-left p {
+    font-size: 14px;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.signup-right {
+    width: 55%;
+    padding: 90px 40px;
+}
+
+.signup-right h2 {
+    font-size: 26px;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+.auth-sub {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 24px;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px 42px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.input-group i.fa-envelope,
+.input-group i.fa-lock,
+.input-group i.fa-user {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 14px;
+}
+
+.toggle-password {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+    color: #999;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0f9d58;
+    box-shadow: 0 0 0 2px rgba(15, 157, 88, 0.15);
+}
+
+.btn-solid {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    background: #0f9d58;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-solid i {
+    margin-right: 6px;
+}
+
+.btn-solid:hover {
+    background: #0c7c45;
+}
+
+.form-msg {
+    margin-top: 10px;
+    font-size: 13px;
+    text-align: center;
+    color: red;
+}
+
+.auth-footer {
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: #555;
+}
+
+.auth-footer a {
+    color: #0f9d58;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-footer a:hover {
+    text-decoration: underline;
+}
+
+
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .signup-card {
+        flex-direction: column;
+    }
+
+    .signup-left,
+    .signup-right {
+        width: 100%;
+    }
+
+    .signup-left {
+        padding: 24px 28px;
+    }
+
+    .signup-right {
+        padding: 30px 20px;
+    }
+
+    .signup-right h2 {
+        text-align: center;
+    }
+
+    .auth-sub {
+        text-align: center;
+    }
+}
+
+/* DESKTOP ONLY ROUNDED RIGHT CORNER */
+@media (min-width: 769px) {
+    .signup-left {
+        border-top-right-radius: 60px;
+        border-bottom-right-radius: 60px;
+    }
+}

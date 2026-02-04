@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | MindCare</title>
+  <link rel="icon" type="image/png" href="../images/brain_icon.png">
+  <link rel="stylesheet" href="../css/registerLogin.css" />
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+</head>
+
+<body class="signup-body">
+
+  <div class="signup-card">
+
+    <!-- LEFT IMAGE -->
+    <div class="signup-left">
+      <img src="../images/register.png" alt="Mental wellness illustration" />
+
+      <h3>Your safe space starts here</h3>
+      <p>
+        Chat with an AI assistant, track your mood,
+        and take steps toward better mental well-being.
+      </p>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="signup-right">
+      <h2>Create Account</h2>
+      <p class="auth-sub">
+        Begin your journey toward better mental health
+      </p>
+
+      <form id="registerForm">
+        <!-- USERNAME -->
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" id="name" placeholder="Username" required />
+        </div>
+
+
+        <!-- EMAIL -->
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="Email address" required />
+        </div>
+
+        <!-- PASSWORD WITH SHOW/HIDE -->
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" required />
+          <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+        </div>
+
+        <button type="submit" class="btn-solid full">
+          Get Started
+        </button>
+      </form>
+
+      <p id="registerMsg" class="form-msg"></p>
+
+      <p class="auth-footer">
+        Already have an account?
+        <a href="../pages/login.html">Login</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="../js/register.js"></script>
+
+  <!-- SHOW / HIDE PASSWORD SCRIPT -->
+  <script>
+    const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+      const type =
+        password.getAttribute("type") === "password"
+          ? "text"
+          : "password";
+      password.setAttribute("type", type);
+
+      togglePassword.classList.toggle("fa-eye");
+      togglePassword.classList.toggle("fa-eye-slash");
+    });
+  </script>
+
+</body>
+
+</html>

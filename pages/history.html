@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Mood History | MindCare</title>
+  <link rel="icon" type="image/png" href="../images/brain_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" href="../css/history.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <button class="nav-btn" onclick="goBack()">
+      <i class="fas fa-arrow-left"></i> Back
+    </button>
+
+    <h3 class="history-title">
+      <i class="fas fa-history"></i> Your Mood History
+    </h3>
+  </nav>
+
+  <!-- CHART -->
+  <section class="chart-section">
+    <div class="chart-card">
+      <canvas id="moodChart"></canvas>
+    </div>
+  </section>
+
+  <!-- HISTORY LIST -->
+  <section id="historySection">
+    <h4 class="section-title">Recent Entries</h4>
+    <div id="historyContainer"></div>
+  </section>
+
+  <!-- CHART JS -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../js/history.js"></script>
+
+</body>
+
+</html>

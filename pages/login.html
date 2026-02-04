@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | MindCare</title>
+  <link rel="icon" type="image/png" href="../images/brain_icon.png">
+
+  <link rel="stylesheet" href="../css/registerLogin.css" />
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+
+<body class="signup-body">
+
+
+  <div class="signup-card">
+
+    <!-- LEFT IMAGE -->
+    <div class="signup-left">
+      <img src="../images/login.png" class="login-img" alt="Mental health support" />
+      <h3>Welcome back</h3>
+      <p>
+        Continue your journey toward better mental well-being.
+        We’re here to support you.
+      </p>
+    </div>
+
+    <!-- RIGHT FORM -->
+    <div class="signup-right">
+      <h2>Login</h2>
+      <p class="auth-sub">Sign in to continue your MindCare journey</p>
+
+      <form id="loginForm">
+
+        <!-- EMAIL -->
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" id="email" placeholder="Email address" required />
+        </div>
+
+        <!-- PASSWORD WITH SHOW/HIDE -->
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Password" required />
+          <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+        </div>
+
+        <button type="submit" class="btn-solid full">
+          <i class="fas fa-right-to-bracket"></i> Login
+        </button>
+      </form>
+
+      <p id="loginMsg" class="form-msg"></p>
+
+      <p class="auth-footer">
+        Don’t have an account?
+        <a href="../pages/register.html">Create one</a>
+      </p>
+    </div>
+
+  </div>
+
+  <!-- SHOW / HIDE PASSWORD SCRIPT -->
+  <script>
+    const togglePassword = document.getElementById("togglePassword");
+    const password = document.getElementById("password");
+
+    togglePassword.addEventListener("click", () => {
+      const type =
+        password.getAttribute("type") === "password"
+          ? "text"
+          : "password";
+      password.setAttribute("type", type);
+
+      togglePassword.classList.toggle("fa-eye");
+      togglePassword.classList.toggle("fa-eye-slash");
+    });
+  </script>
+
+  <script src="../js/login.js"></script>
+</body>
+
+</html>

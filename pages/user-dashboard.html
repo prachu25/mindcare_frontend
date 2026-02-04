@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>User Dashboard | MindCare</title>
+  <link rel="icon" type="image/png" href="../images/brain_icon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- For icons -->
+  <link rel="stylesheet" href="../css/user-dashboard.css" />
+
+
+  <style>
+    /* ---- CALMING SOUND SEECTION ---  */
+
+    .calm-sound-section {
+      position: relative;
+      width: 100%;
+      min-height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      /* BACKGROUND IMAGE */
+      background-image: url("../images/sound.png");
+      /* ← apni image ka path */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+
+      border-radius: 24px;
+      overflow: hidden;
+      margin: 40px auto;
+
+      margin-top: 45px;
+    }
+
+    /* Dark overlay for text clarity */
+    .calm-sound-section::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(2px);
+      z-index: 1;
+    }
+
+    /* Inner heading */
+    .calm-content h3 {
+      color: #ffffff;
+      font-size: 1.3rem;
+      margin-bottom: 6px;
+    }
+
+
+    /* Content box */
+    .calm-content {
+      z-index: 2;
+      text-align: center;
+      padding: 40px 30px;
+      color: #fff;
+      max-width: 900px;
+
+    }
+
+    /* Heading */
+    .calm-content h2 {
+      font-size: 34px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Subtitle */
+    .calm-content .subtitle {
+      font-size: 16px;
+      opacity: 0.9;
+      margin-bottom: 32px;
+      color: white;
+    }
+
+    /* Sound buttons wrapper */
+    .sound-options {
+      display: flex;
+      gap: 22px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* Sound button */
+    .sound-btn {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+
+      width: 130px;
+      height: 120px;
+      border-radius: 18px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* Icons */
+    .sound-btn i {
+      font-size: 30px;
+    }
+
+    /* Button text */
+    .sound-btn span {
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    /* Hover effect */
+    .sound-btn:hover {
+      transform: translateY(-6px) scale(1.03);
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    /* Active / playing state (JS se add hoga) */
+    .sound-btn.active {
+      background: rgba(255, 255, 255, 0.35);
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .calm-content h2 {
+        font-size: 26px;
+      }
+
+      .sound-btn {
+        width: 110px;
+        height: 105px;
+      }
+    }
+  </style>
+
+</head>
+
+<body class="dash-body">
+  <!-- TOP NAVIGATION BAR -->
+  <header class="top-nav" role="banner">
+    <div class="nav-container">
+      <div class="logo">
+        <i class="fas fa-brain"></i> MindCare
+      </div>
+      <nav class="nav-menu" id="navMenu" aria-label="Main Navigation">
+        <a href="../pages/user-dashboard.html" aria-label="Home"><i class="fas fa-home"></i> Home</a>
+        <a href="../pages/chat.html" aria-label="Chat"><i class="fas fa-comments"></i> Chat</a>
+        <a href="../pages/mood.html" aria-label="Mood"><i class="fas fa-smile"></i> Mood</a>
+        <a href="#" onclick="logout()" aria-label="Logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      </nav>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle Navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION (Former Image Sidebar) -->
+  <section class="hero-section" role="complementary" aria-label="Welcome Message">
+    <div class="hero-overlay">
+      <h1>Hello, <span id="userName" aria-live="polite"></span>! </h1>
+      <p>How are you feeling today? Let's take a moment to check in.</p>
+      <a href="../pages/chat.html" class="btn-primary" aria-label="Start a new chat">Start Chat</a>
+    </div>
+  </section>
+
+
+
+
+  <!-- MAIN DASHBOARD CONTENT -->
+  <main class="dashboard-main" role="main">
+
+    <!-- QUICK ACTIONS BAR -->
+    <section class="quick-actions" aria-label="Quick Actions">
+      <h2>Quick Actions</h2>
+      <div class="actions-grid">
+        <button class="action-btn" onclick="window.location.href='../pages/mood.html'">
+          <i class="fas fa-smile"></i> Log Mood
+        </button>
+
+        <button class="action-btn" aria-label="Assessment" onclick="openAssessment()">
+          <i class="fas fa-clipboard-list"></i>
+          Take Assessment
+        </button>
+        <button class="action-btn" aria-label="View Sleep" onclick="openSleepModal()"><i class="fas fa-moon"></i> Sleep
+          Tracker</button>
+        <button class="action-btn" aria-label="Meditation" onclick="openMeditationModal()"><i class="fas fa-om"></i>
+          Guided Meditation</button>
+      </div>
+    </section>
+
+    <!-- DASHBOARD WIDGETS GRID -->
+    <section class="widgets-grid" aria-label="Dashboard Widgets">
+      <!-- STATS WIDGET -->
+      <div class="widget stats-widget">
+        <h3>Your Wellness Status</h3>
+
+        <div class="stats-list">
+
+          <!-- STRESS -->
+          <div class="stat-item">
+            <i class="fas fa-brain"></i>
+            <div>
+              <span class="stat-value" id="stressValue">--</span>
+              <span class="stat-label">Stress Level</span>
+              <div class="progress-bar">
+                <div class="progress-fill" id="stressBar"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- MOOD -->
+          <div class="stat-item">
+            <i class="fas fa-heart"></i>
+            <div>
+              <span class="stat-value" id="moodValue">--</span>
+              <span class="stat-label">Mood Score</span>
+              <div class="progress-bar">
+                <div class="progress-fill" id="moodBar"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- WELL-BEING -->
+          <div class="stat-item">
+            <i class="fas fa-leaf"></i>
+            <div>
+              <span class="stat-value" id="wellbeingValue">--</span>
+              <span class="stat-label">Well-being</span>
+              <div class="progress-bar">
+                <div class="progress-fill" id="wellbeingBar"></div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+      <!-- Assessemnt Trend -->
+      <div class="card">
+        <h3>Recommended Actions for You</h3>
+        <p id="assessmentSummary"></p>
+
+        <ul id="actionList" class="action-list"></ul>
+
+        <div class="action-cta">
+          <button class="btn-secondary" onclick="openAssessment()">
+            <i class="fas fa-clipboard-check"></i>
+            Retake Assessment
+          </button>
+
+          <button class="btn-secondary" onclick="openMeditationModal()">
+            <i class="fas fa-wind"></i>
+            Try Breathing
+          </button>
+        </div>
+      </div>
+
+
+
+
+      <!-- FEATURE WIDGET -->
+      <div class="widget feature-widget">
+        <h3>Supportive Chat</h3>
+
+        <p>A safe space to share how you’re feeling and get gentle guidance anytime you need it..</p>
+
+        <ul class="ai-help-list">
+          <li>
+            <i class="fas fa-comments"></i>
+            Talk when you feel stressed or anxious
+          </li>
+          <li>
+            <i class="fas fa-brain"></i>
+            Get coping tips & calming exercises
+          </li>
+          <li>
+            <i class="fas fa-moon"></i>
+            Sleep & mood guidance anytime
+          </li>
+        </ul>
+
+        <a href="../pages/chat.html" class="btn-secondary">Open Chat →</a>
+      </div>
+
+    </section>
+
+
+    <!-- SOUND SECTION -->
+    <section class="calm-sound-section">
+
+      <div class="calm-content">
+        <h2>Calming Sounds</h2>
+        <p class="subtitle">
+          Take a deep breath and choose a sound to relax your mind 🌿
+        </p>
+
+        <div class="sound-options">
+          <button class="sound-btn" data-sound="rain">
+            <i class="fas fa-cloud-rain"></i>
+            <span>Rain</span>
+          </button>
+
+          <button class="sound-btn" data-sound="forest">
+            <i class="fas fa-leaf"></i>
+            <span>Forest</span>
+          </button>
+
+          <button class="sound-btn" data-sound="waves">
+            <i class="fas fa-water"></i>
+            <span>Waves</span>
+          </button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Audio -->
+    <audio id="rain" src="../audio/rain.mp3" loop></audio>
+    <audio id="forest" src="../audio/forest.mp3" loop></audio>
+    <audio id="waves" src="../audio/waves.mp3" loop></audio>
+
+
+    <!--CARE ADVICE SECTION-->
+    <section class="care-advise-section">
+      <div class="care-header">
+        <h2>Care & Advice for Your Mental Well-Being</h2>
+        <p>
+          Simple daily practices that help you relax your mind,
+          stay focused, and build healthy habits.
+        </p>
+      </div>
+
+      <div class="care-cards">
+
+        <!-- Card 1: Relax -->
+        <div class="care-card">
+          <img src="../images/userDashboard-img/relax.png" alt="Relax with music">
+          <div class="care-overlay">
+            <h3>Relax Your Mind</h3>
+            <p>
+              Take a short break, listen to calming music,
+              and try deep breathing to reduce stress instantly.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 2: Meditate -->
+        <div class="care-card">
+          <img src="../images/userDashboard-img/meditation.png" alt="Meditation">
+          <div class="care-overlay">
+            <h3>Practice Mindfulness</h3>
+            <p>
+              Daily meditation improves focus, emotional balance,
+              and helps you stay present in the moment.
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 3: Nutrition -->
+        <div class="care-card">
+          <img src="../images/userDashboard-img/nutrition.png" alt="Healthy nutrition">
+          <div class="care-overlay">
+            <h3>Eat Well for a Healthy Mind</h3>
+            <p>
+              A balanced diet with proteins, healthy fats,
+              and vitamins supports brain and mood health.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </section>
+
+    <!-- GUIDED-YOGA SECTION -->
+    <section class="guided-yoga-section">
+      <h2>Yoga Poses for Better Sleep</h2>
+      <p class="subtitle">
+        Follow these simple poses step by step before bedtime to relax your body and mind.
+      </p>
+
+      <div class="yoga-steps">
+
+        <div class="yoga-card">
+          <img src="../images/userDashboard-img/yoga/step1-hero.png" alt="Hero Pose">
+          <h3>Step 1: Hero Pose (Virasana)</h3>
+          <p>Sit comfortably and focus on slow breathing for 20 seconds.</p>
+        </div>
+
+        <div class="yoga-card">
+          <img src="../images/userDashboard-img/yoga/step2-child.png" alt="Child Pose">
+          <h3>Step 2: Child’s Pose (Balasana) </h3>
+          <p>Gently stretch your back and calm your nervous system.</p>
+        </div>
+
+        <div class="yoga-card">
+          <img src="../images/userDashboard-img/yoga/step3-camel.png" alt="Camel Pose">
+          <h3>Step 3: Camel Pose (Ustrasana)</h3>
+          <p>Open your chest and release tension from your spine.</p>
+        </div>
+
+        <div class="yoga-card">
+          <img src="../images/userDashboard-img/yoga/step4-butterfly.png" alt="Butterfly Pose">
+          <h3>Step 4: Butterfly Pose (Baddha Konasana)</h3>
+          <p>Sit comfortably and open your knees. Relax your body and release stress.</p>
+        </div>
+
+        <div class="yoga-card">
+          <img src="../images/userDashboard-img/yoga/step5-cropse.png" alt="Cropse Pose">
+          <h3>Step 5: Cropse Pose (Savasana)</h3>
+          <p>Lie down and relax your body. Breathe slowly and calm your mind.</p>
+        </div>
+
+        <div class="yoga-card">
+          <img src="../images/userDashboard-img/yoga/step6-sleep.png" alt="sleep Pose">
+          <h3>Step 6: Sleep</h3>
+          <p>Relax your body, slow your breath, and let your mind settle into deep, restful sleep.</p>
+        </div>
+
+      </div>
+
+      <div class="sleep-tip-inline">
+        <i class="fas fa-lightbulb"></i>
+        <span>
+          Take a short break from your phone for at least <b>15 minutes</b> after this session. This helps your mind
+          relax and supports deeper, more restful sleep.
+        </span>
+      </div>
+
+    </section>
+
+    <!--EDNDING SECTION-->
+    <section class="session-end">
+
+      <p>
+        Take a quiet moment to slow down and breathe gently. Notice how your body feels and how your mind is settling
+        right now. There’s nothing you need to do or think about just allow yourself to relax, let go of the day, and
+        ease into a calm, comfortable state before resting.
+      </p>
+
+      <button class="end-action">
+        <a href="../pages/mood.html">
+          <i class="fas fa-plus-circle"></i>
+          Log Your Feeling
+        </a>
+      </button>
+
+
+      <p class="end-audio">
+        <i class="fas fa-headphones"></i>
+        You can continue listening to calming sounds.
+      </p>
+    </section>
+
+  </main>
+
+
+  <footer class="app-footer">
+    <p>© 2026 MindCare • Take care of your mind</p>
+  </footer>
+
+
+
+
+  <!-- FLOATING USER PROFILE CARD -->
+  <div class="floating-profile" id="floatingProfile" tabindex="0" aria-label="User Profile">
+    <img src="../images/icons/profile.png" alt="User Profile" />
+    <div class="profile-card" id="profileCard" aria-hidden="true">
+      <h4 id="floatingUserName"></h4>
+      <a href="../pages/profilePage.html" aria-label="Edit Profile">Edit Profile</a>
+      <a href="#" onclick="logout()" aria-label="Logout">Logout</a>
+    </div>
+  </div>
+
+  <!--  SLEEP TRACKER MODAL  -->
+  <div id="sleepModal" class="modal-overlay">
+
+    <div class="modal-card">
+      <h3>How many hours did you sleep last night?</h3>
+
+      <input type="range" min="0" max="12" value="7" id="sleepRange" oninput="sleepValue.innerText = this.value" />
+
+      <p><strong><span id="sleepValue"></span> hours</strong></p>
+
+      <div class="modal-actions">
+        <button onclick="saveSleep()">Save</button>
+        <button class="cancel" onclick="closeSleepModal()">Cancel</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!--  GUIDED MEDITATION MODAL  -->
+  <div id="meditationModal" class="modal-overlay">
+    <div class="modal-card meditation-card">
+      <h3>1-Minute Calm Breathing</h3>
+      <p id="breathText">Click start and follow your breath</p>
+      <div class="breathing-circle" id="breathingCircle"></div>
+      <p class="timer" id="meditationTimer">01:00</p>
+      <div class="modal-actions">
+        <button id="startMeditationBtn" onclick="startMeditation()">Start</button>
+        <button class="cancel" onclick="closeMeditationModal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="../js/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Update Profile | MindCare</title>
+    <link rel="icon" type="image/png" href="../images/brain_icon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/profilePage.css">
+
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div class="page-wrapper">
+
+        <div class="app-card">
+
+            <!-- HEADER INSIDE CARD -->
+            <header class="app-header">
+                <i class="fas fa-arrow-left"></i>
+                <h2>Profile</h2>
+            </header>
+
+            <!-- CONTENT -->
+            <main class="container">
+
+                <!-- GENDER -->
+                <div class="gender-wrapper">
+                    <div class="gender-card active" data-gender="Male">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140048.png">
+                        <p>Male</p>
+                    </div>
+
+                    <div class="gender-card" data-gender="Female">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png">
+                        <p>Female</p>
+                    </div>
+                </div>
+
+                <!-- FORM -->
+                <form id="profileForm">
+
+
+                    <div class="input-group">
+                        <label>First name</label>
+                        <input type="text" id="firstName" placeholder="John" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Last name</label>
+                        <input type="text" id="lastName" placeholder="Doe" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Age</label>
+                        <input type="number" id="age" placeholder="Enter your age" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Occupation</label>
+                        <input type="text" id="occupation" placeholder="Student/ Doctor or ect..">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Sleep Hour (per day)</label>
+                        <input type="number" id="sleepHours" placeholder="8">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Stress Level</label>
+                        <select id="stressLevel" required aria-describedby="stress-help">
+                            <option value="">Select your current stress level</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" id="saveBtn" class="save-btn">Save</button>
+
+                </form>
+
+            </main>
+
+        </div>
+
+    </div>
+
+    <script src="../js/profilePage.js"></script>
+
+
+
+
+</body>
+
+</html>
