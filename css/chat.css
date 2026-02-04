@@ -132,10 +132,10 @@
             #sendBtn {
                 width: 45px;
                 height: 45px;
-                margin-right: 20px;
             }
 
             #sendBtn i {
                 font-size: 18px;
+                margin-right: 20px;
             }
         }
